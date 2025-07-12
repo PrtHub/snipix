@@ -35,24 +35,26 @@ Ensure you have Node.js and npm (or Yarn/pnpm) installed.
 ### Installation
 
 1. **Clone the repository**:
-   ```bash
+
+```bash
    git clone https://github.com/your-username/snipix.git
 cd snipix
    ```
 
 2. **Install dependencies**:
-   ```bash
+
+```bash
    npm install
 # or yarn install
 # or pnpm install
-   ```
+```
 
 3. **Run the development server**:
-   ```bash
+```bash
    npm run dev
-# or yarn dev
-# or pnpm dev
-   ```
+  or yarn dev
+  or pnpm dev
+```
 
 4. Open [http://localhost:3000](http://localhost:3000) in your browser to see Snipix in action.
 
