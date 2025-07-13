@@ -49,7 +49,7 @@ export function TypographySelector({
       </CardHeader>
       <CardContent className="relative space-y-4">
         <div className="space-y-2">
-          <Label className="text-zinc-300 drop-shadow-sm">Font Family</Label>
+          <Label className="text-zinc-300 drop-shadow-sm mb-3">Font Family</Label>
           <div className="grid grid-cols-2 gap-2">
             {FONT_FAMILIES.map((font) => (
               <Button
@@ -70,7 +70,7 @@ export function TypographySelector({
         </div>
         
         <div className="space-y-2">
-          <Label className="text-zinc-300 drop-shadow-sm">Font Size</Label>
+          <Label className="text-zinc-300 drop-shadow-sm mb-3">Font Size</Label>
           <div className="flex gap-2 flex-wrap">
             {FONT_SIZES.map((size) => (
               <Button

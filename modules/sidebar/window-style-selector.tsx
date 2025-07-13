@@ -34,7 +34,7 @@ export function WindowStyleSelector({ selectedStyle, onStyleChange }: WindowStyl
       </CardHeader>
       <CardContent className="relative space-y-3">
         <div className="space-y-2">
-          <Label className="text-zinc-300 drop-shadow-sm">Window Appearance</Label>
+          <Label className="text-zinc-300 drop-shadow-sm mb-3">Window Appearance</Label>
           <div className="grid grid-cols-2 gap-2">
             {WINDOW_STYLES.map((style) => (
               <Button
@@ -42,9 +42,9 @@ export function WindowStyleSelector({ selectedStyle, onStyleChange }: WindowStyl
                 variant={selectedStyle === style.value ? "default" : "outline"}
                 size="sm"
                 onClick={() => onStyleChange(style.value)}
-                className={`flex flex-col items-start h-auto p-3 transition-all duration-300 ${
+                className={`flex flex-col items-start h-auto p-3 transition-all duration-300 cursor-pointer ${
                   selectedStyle === style.value 
-                    ? "bg-gradient-to-r from-white/20 to-white/10 text-white shadow-lg shadow-white/10 border border-white/20 backdrop-blur-sm" 
+                    ? "bg-gradient-to-r from-white/20 to-white/10 text-white shadow-lg shadow-white/10 border border-white/20 backdrop-blur-sm hover:bg-white/10" 
                     : "bg-black/40 backdrop-blur-sm border-white/20 text-zinc-300 hover:bg-white/10 hover:border-white/30 hover:text-white"
                 }`}
               >

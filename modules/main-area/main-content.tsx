@@ -60,12 +60,12 @@ helloWorld();`);
   const customResult = highlightCodeCustom(code, language, backgroundColor);
   const editorBg = customResult.theme.background;
   
-  // Compose style props for preview
-  const previewStyle = {
-    fontFamily: `var(--font-${fontFamily})`,
-    fontSize: `${fontSize}px`,
-    background: editorBg,
-  };
+  // // Compose style props for preview
+  // const previewStyle = {
+  //   fontFamily: `var(--font-${fontFamily})`,
+  //   fontSize: `${fontSize}px`,
+  //   background: editorBg,
+  // };
 
   return (
     <div className="flex h-full flex-col bg-gradient-to-br from-black via-zinc-900 to-black relative overflow-hidden">
@@ -84,7 +84,7 @@ helloWorld();`);
         ) : (
           <div ref={previewRef} className="h-full">
             <CodePreview
-              code={code}
+              // code={code}
               highlightedCode={highlightedCode}
               language={language}
               fontFamily={fontFamily}
@@ -92,7 +92,7 @@ helloWorld();`);
               backgroundColor={editorBg}
               windowStyle={windowStyle}
               editorTheme={editorTheme}
-              style={previewStyle}
+              // style={previewStyle}
             />
           </div>
         )}

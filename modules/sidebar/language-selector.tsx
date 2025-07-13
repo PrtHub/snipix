@@ -32,7 +32,7 @@ export function LanguageSelector({ selectedLanguage, onLanguageChange }: Languag
       </CardHeader>
       <CardContent className="relative space-y-3">
         <div className="space-y-2">
-          <Label htmlFor="language" className="text-zinc-300 drop-shadow-sm">
+          <Label htmlFor="language" className="text-zinc-300 drop-shadow-sm mb-3">
             Programming Language ({PROGRAMMING_LANGUAGES.length} popular)
           </Label>
           <Select value={selectedLanguage} onValueChange={onLanguageChange}>

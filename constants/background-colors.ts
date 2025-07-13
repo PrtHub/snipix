@@ -1,5 +1,4 @@
 export const BACKGROUND_COLORS = [
-  { value: "dark-gray", label: "Dark Gray", color: "#2d3748" },
   { value: "midnight-gradient", label: "Midnight", color: "linear-gradient(135deg, #0f1419 0%, #1e2328 100%)" },
   { value: "purple-gradient", label: "Purple Haze", color: "linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%)" },
   { value: "emerald-gradient", label: "Emerald Dream", color: "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)" },
