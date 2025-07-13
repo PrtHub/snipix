@@ -1,14 +1,12 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
-import hljs from "highlight.js";
-import "highlight.js/styles/github-dark.css";
+import { useState, useRef, useEffect } from "react";
 import MainContentHeader from "./MainContentHeader";
 import CodeInput from "./CodeInput";
 import CodePreview from "./CodePreview";
 import { toPng } from "html-to-image";
 import { useCustomizationStore } from "@/stores/customizationStore";
-import { loadTheme } from "@/lib/highlight-utils";
+import { highlightCodeCustom, injectCustomThemeCSS } from "@/lib/custom-prism-utils";
 
 export function MainContent() {
   const [mode, setMode] = useState<"code" | "preview">("code");
@@ -32,21 +30,17 @@ helloWorld();`);
     windowStyle,
   } = useCustomizationStore();
 
-  useEffect(() => {
-    hljs.highlightAll();
-  }, [code, language, editorTheme]);
+  // Custom theme highlighting
+  const { value: highlightedCode } = highlightCodeCustom(code, language, backgroundColor);
 
-  // Use loadTheme utility to swap highlight.js theme
+  // Inject custom theme CSS
   useEffect(() => {
-    loadTheme(editorTheme);
-  }, [editorTheme]);
-
-  let highlightedCode = code;
-  try {
-    highlightedCode = hljs.highlight(code, { language }).value;
-  } catch {
-    highlightedCode = hljs.highlightAuto(code).value;
-  }
+    if (!editorTheme) return;
+    
+    // Always use custom themes now
+    const customResult = highlightCodeCustom(code, language, backgroundColor);
+    injectCustomThemeCSS(customResult.css);
+  }, [editorTheme, backgroundColor, code, language]);
 
   const handleExport = async () => {
     if (previewRef.current && code.trim()) {
@@ -62,11 +56,15 @@ helloWorld();`);
     }
   };
 
+  // Get the custom theme to get the actual background color
+  const customResult = highlightCodeCustom(code, language, backgroundColor);
+  const editorBg = customResult.theme.background;
+  
   // Compose style props for preview
   const previewStyle = {
     fontFamily: `var(--font-${fontFamily})`,
     fontSize: `${fontSize}px`,
-    background: backgroundColor.includes("gradient") ? undefined : backgroundColor,
+    background: editorBg,
   };
 
   return (
@@ -91,8 +89,9 @@ helloWorld();`);
               language={language}
               fontFamily={fontFamily}
               fontSize={fontSize}
-              backgroundColor={backgroundColor}
+              backgroundColor={editorBg}
               windowStyle={windowStyle}
+              editorTheme={editorTheme}
               style={previewStyle}
             />
           </div>

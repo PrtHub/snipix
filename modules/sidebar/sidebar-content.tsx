@@ -6,15 +6,12 @@ import { LanguageSelector } from "./language-selector";
 import { ThemeSelector } from "./theme-selector";
 import { WindowStyleSelector } from "./window-style-selector";
 import { TypographySelector } from "./typography-selector";
-import { BackgroundSelector } from "./background-selector";
 import { useCustomizationStore } from "@/stores/customizationStore";
 
 export function SidebarContent() {
   const {
     language,
     setLanguage,
-    colorScheme,
-    setColorScheme,
     editorTheme,
     setEditorTheme,
     windowStyle,
@@ -23,8 +20,8 @@ export function SidebarContent() {
     setFontFamily,
     fontSize,
     setFontSize,
-    backgroundColor,
-    setBackgroundColor,
+    selectedSnipixTheme,
+    setSnipixTheme,
   } = useCustomizationStore();
 
   return (
@@ -51,10 +48,10 @@ export function SidebarContent() {
             onLanguageChange={setLanguage}
           />
           <ThemeSelector
-            colorScheme={colorScheme}
             editorTheme={editorTheme}
-            onColorSchemeChange={setColorScheme}
+            selectedSnipixTheme={selectedSnipixTheme}
             onEditorThemeChange={setEditorTheme}
+            onSnipixThemeChange={setSnipixTheme}
           />
           <WindowStyleSelector
             selectedStyle={windowStyle}
@@ -65,10 +62,6 @@ export function SidebarContent() {
             fontSize={fontSize}
             onFontFamilyChange={setFontFamily}
             onFontSizeChange={setFontSize}
-          />
-          <BackgroundSelector
-            selectedBackground={backgroundColor}
-            onBackgroundChange={setBackgroundColor}
           />
           {/* Add some bottom padding to ensure scrollability */}
           <div className="h-4" />
