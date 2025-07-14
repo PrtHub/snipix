@@ -23,17 +23,25 @@ export type FontFamily = typeof FONT_FAMILIES[number]["value"];
 export type FontSize = typeof FONT_SIZES[number]["value"];
 
 interface TypographySelectorProps {
-  fontFamily: FontFamily;
   fontSize: FontSize;
-  onFontFamilyChange: (family: FontFamily) => void;
   onFontSizeChange: (size: FontSize) => void;
+  bold?: boolean;
+  italic?: boolean;
+  onBoldChange?: (bold: boolean) => void;
+  onItalicChange?: (italic: boolean) => void;
+  lineNumbers?: boolean;
+  onLineNumbersChange?: (show: boolean) => void;
 }
 
 export function TypographySelector({ 
-  fontFamily, 
   fontSize, 
-  onFontFamilyChange, 
-  onFontSizeChange 
+  onFontSizeChange,
+  bold = false,
+  italic = false,
+  onBoldChange,
+  onItalicChange,
+  lineNumbers = false,
+  onLineNumbersChange,
 }: TypographySelectorProps) {
   return (
     <Card className="relative bg-black/40 backdrop-blur-xl border border-white/10 shadow-2xl">
@@ -48,26 +56,6 @@ export function TypographySelector({
         </CardTitle>
       </CardHeader>
       <CardContent className="relative space-y-4">
-        <div className="space-y-2">
-          <Label className="text-zinc-300 drop-shadow-sm mb-3">Font Family</Label>
-          <div className="grid grid-cols-2 gap-2">
-            {FONT_FAMILIES.map((font) => (
-              <Button
-                key={font.value}
-                variant={fontFamily === font.value ? "default" : "outline"}
-                size="sm"
-                className={`transition-all duration-300 ${font.className} ${
-                  fontFamily === font.value 
-                    ? "bg-gradient-to-r from-white/20 to-white/10 text-white shadow-lg shadow-white/10 border border-white/20 backdrop-blur-sm" 
-                    : "bg-black/40 backdrop-blur-sm border-white/20 text-zinc-300 hover:bg-white/10 hover:border-white/30 hover:text-white"
-                }`}
-                onClick={() => onFontFamilyChange(font.value)}
-              >
-                {font.label}
-              </Button>
-            ))}
-          </div>
-        </div>
         
         <div className="space-y-2">
           <Label className="text-zinc-300 drop-shadow-sm mb-3">Font Size</Label>
@@ -77,9 +65,9 @@ export function TypographySelector({
                 key={size.value}
                 variant={fontSize === size.value ? "default" : "outline"}
                 size="sm"
-                className={`transition-all duration-300 ${
+                className={`transition-all duration-300 cursor-pointer ${
                   fontSize === size.value 
-                    ? "bg-gradient-to-r from-white/20 to-white/10 text-white shadow-lg shadow-white/10 border border-white/20 backdrop-blur-sm" 
+                    ? "bg-gradient-to-r from-white/20 to-white/10 text-white shadow-lg shadow-white/10 border border-white/20 backdrop-blur-sm hover:bg-white/10" 
                     : "bg-black/40 backdrop-blur-sm border-white/20 text-zinc-300 hover:bg-white/10 hover:border-white/30 hover:text-white"
                 }`}
                 onClick={() => onFontSizeChange(size.value)}
@@ -88,6 +76,42 @@ export function TypographySelector({
               </Button>
             ))}
           </div>
+        </div>
+        <div className="flex gap-2 items-center mt-3">
+          <Label className="text-zinc-300 drop-shadow-sm">Style</Label>
+          <Button
+            type="button"
+            variant={bold ? "default" : "outline"}
+            size="sm"
+            className={`font-bold cursor-pointer ${bold ? "bg-gradient-to-r from-white/20 to-white/10 text-white hover:bg-white/10" : "bg-black/40 text-zinc-300 "}`}
+            onClick={() => onBoldChange && onBoldChange(!bold)}
+            aria-pressed={bold}
+          >
+            B
+          </Button>
+          <Button
+            type="button"
+            variant={italic ? "default" : "outline"}
+            size="sm"
+            className={`italic cursor-pointer ${italic ? "bg-gradient-to-r from-white/20 to-white/10 text-white hover:bg-white/10" : "bg-black/40 text-zinc-300"}`}
+            onClick={() => onItalicChange && onItalicChange(!italic)}
+            aria-pressed={italic}
+          >
+            I
+          </Button>
+        </div>
+        <div className="flex gap-2 items-center mt-3">
+          <Label className="text-zinc-300 drop-shadow-sm">Line Numbers</Label>
+          <Button
+            type="button"
+            variant={lineNumbers ? "default" : "outline"}
+            size="sm"
+            className={`cursor-pointer w-10 ${lineNumbers ? "bg-gradient-to-r from-white/20 to-white/10 text-white hover:bg-white/10" : "bg-black/40 text-zinc-300"}`}
+            onClick={() => onLineNumbersChange && onLineNumbersChange(!lineNumbers)}
+            aria-pressed={lineNumbers}
+          >
+            {lineNumbers ? "On" : "Off"}
+          </Button>
         </div>
       </CardContent>
     </Card>

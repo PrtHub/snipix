@@ -16,12 +16,16 @@ export function SidebarContent() {
     setEditorTheme,
     windowStyle,
     setWindowStyle,
-    fontFamily,
-    setFontFamily,
     fontSize,
     setFontSize,
     selectedSnipixTheme,
     setSnipixTheme,
+    bold,
+    italic,
+    lineNumbers,
+    setBold,
+    setItalic,
+    setLineNumbers,
   } = useCustomizationStore();
 
   return (
@@ -58,10 +62,14 @@ export function SidebarContent() {
             onStyleChange={setWindowStyle}
           />
           <TypographySelector
-            fontFamily={fontFamily}
             fontSize={fontSize}
-            onFontFamilyChange={setFontFamily}
             onFontSizeChange={setFontSize}
+            bold={bold}
+            italic={italic}
+            onBoldChange={setBold}
+            onItalicChange={setItalic}
+            lineNumbers={lineNumbers}
+            onLineNumbersChange={setLineNumbers}
           />
           {/* Add some bottom padding to ensure scrollability */}
           <div className="h-4" />

@@ -24,10 +24,12 @@ helloWorld();`);
   const {
     language,
     editorTheme,
-    fontFamily,
     fontSize,
     backgroundColor,
     windowStyle,
+    bold,
+    italic,
+    lineNumbers,
   } = useCustomizationStore();
 
   // Custom theme highlighting
@@ -80,19 +82,19 @@ helloWorld();`);
       />
       <div className="relative flex-1 p-6">
         {mode === "code" ? (
-          <CodeInput code={code} setCode={setCode} fontFamily={fontFamily} fontSize={fontSize} />
+          <CodeInput code={code} setCode={setCode} fontSize={fontSize} />
         ) : (
           <div ref={previewRef} className="h-full">
             <CodePreview
-              // code={code}
               highlightedCode={highlightedCode}
               language={language}
-              fontFamily={fontFamily}
               fontSize={fontSize}
               backgroundColor={editorBg}
               windowStyle={windowStyle}
               editorTheme={editorTheme}
-              // style={previewStyle}
+              bold={bold}
+              italic={italic}
+              lineNumbers={lineNumbers}
             />
           </div>
         )}

@@ -4,11 +4,13 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 interface CodePreviewProps {
   highlightedCode: string;
   language: string;
-  fontFamily: string;
   fontSize: string;
   backgroundColor: string;
   editorTheme: string;
   windowStyle: string;
+  bold?: boolean;
+  italic?: boolean;
+  lineNumbers?: boolean;
 }
 
 function getOverlayColor(themeBg: string) {
@@ -96,16 +98,20 @@ function WindowBar({ windowStyle }: { windowStyle: string }) {
 const CodePreview = ({
   highlightedCode,
   language,
-  fontFamily,
   fontSize,
   backgroundColor,
   editorTheme,
   windowStyle,
+  bold = false,
+  italic = false,
+  lineNumbers = false,
 }: CodePreviewProps) => {
-  // Border radius logic
   let borderRadius = "1rem";
   if (windowStyle === "rounded") borderRadius = "1.5rem";
   if (windowStyle === "sharp") borderRadius = "0";
+
+  const codeLines = highlightedCode.split(/\n/);
+  const showLineNumbers = !!lineNumbers;
 
   return (
     <div className="h-full">
@@ -128,7 +134,6 @@ const CodePreview = ({
           className="relative w-full max-w-3xl mx-auto shadow-xl border border-black/10 overflow-hidden"
           style={{ margin: "2rem auto", borderRadius }}
         >
-          {/* Window Bar */}
           <WindowBar windowStyle={windowStyle} />
           <div
             className="absolute inset-0 pointer-events-none z-0"
@@ -142,15 +147,45 @@ const CodePreview = ({
               <pre
                 className={`custom-theme prism font-mono text-sm leading-relaxed whitespace-pre-wrap break-words language-${language} ${editorTheme} relative z-10`}
                 style={{
-                  fontFamily: `var(--font-${fontFamily})`,
+                  fontWeight: bold ? "bold" : undefined,
+                  fontStyle: italic ? "italic" : undefined,
                   fontSize: `${fontSize}px`,
                   background: "none",
+                  margin: 0,
+                  padding: 0,
+                  display: "flex",
                 }}
               >
-                <code
-                  className={`language-${language}`}
-                  dangerouslySetInnerHTML={{ __html: highlightedCode }}
-                />
+                {showLineNumbers ? (
+                  <code className={`language-${language} flex`} style={{ width: "100%" }}>
+                    <span style={{
+                      userSelect: "none",
+                      color: "#888",
+                      textAlign: "right",
+                      minWidth: "2.5em",
+                      marginRight: "1em",
+                      display: "inline-block",
+                    }}>
+                      {codeLines.map((_, i) => (
+                        <span key={i} style={{ display: "block", lineHeight: 1.7 }}>{i + 1}</span>
+                      ))}
+                    </span>
+                    <span style={{ width: "100%" }}>
+                      {codeLines.map((line, i) => (
+                        <span
+                          key={i}
+                          dangerouslySetInnerHTML={{ __html: line || "\u200B" }}
+                          style={{ display: "block", lineHeight: 1.7 }}
+                        />
+                      ))}
+                    </span>
+                  </code>
+                ) : (
+                  <code
+                    className={`language-${language}`}
+                    dangerouslySetInnerHTML={{ __html: highlightedCode }}
+                  />
+                )}
               </pre>
             </div>
           </ScrollArea>
