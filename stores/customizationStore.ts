@@ -31,7 +31,7 @@ export const useCustomizationStore = create<CustomizationState>((set) => ({
   language: "javascript",
   editorTheme: "custom-dark-gray",
   windowStyle: "macos",
-  fontFamily: "fira-code",
+  // fontFamily: "fira-code",
   fontSize: "16",
   backgroundColor: "fire-gradient",
   selectedSnipixTheme: null,

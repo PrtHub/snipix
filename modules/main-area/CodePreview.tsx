@@ -1,4 +1,3 @@
-import { Badge } from "@/components/ui/badge";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 interface CodePreviewProps {
@@ -11,6 +10,7 @@ interface CodePreviewProps {
   bold?: boolean;
   italic?: boolean;
   lineNumbers?: boolean;
+  isExporting?: boolean;
 }
 
 function getOverlayColor(themeBg: string) {
@@ -105,6 +105,7 @@ const CodePreview = ({
   bold = false,
   italic = false,
   lineNumbers = false,
+  isExporting = false,
 }: CodePreviewProps) => {
   let borderRadius = "1rem";
   if (windowStyle === "rounded") borderRadius = "1.5rem";
@@ -114,20 +115,9 @@ const CodePreview = ({
   const showLineNumbers = !!lineNumbers;
 
   return (
-    <div className="h-full">
-      <div className="flex items-center justify-between mb-4">
-        <h3 className="text-sm font-semibold text-white drop-shadow-lg">
-          Live Preview
-        </h3>
-        <Badge
-          variant="outline"
-          className="bg-white/10 backdrop-blur-sm text-white border-white/20 shadow-lg"
-        >
-          {language.charAt(0).toUpperCase() + language.slice(1)}
-        </Badge>
-      </div>
+    <div className="h-full p-6">
       <div
-        className={`relative flex flex-col items-center justify-center h-full min-h-[200px] max-h-[80vh] shadow-2xl overflow-visible p-6 rounded-2xl`}
+       className={`relative flex flex-col items-center justify-center h-full ${isExporting ? 'min-h-[80vh]' : 'h-full min-h-[80vh]'} shadow-2xl overflow-hidden p-6 rounded-2xl`}
         style={{ background: backgroundColor }}
       >
         <div
@@ -142,11 +132,12 @@ const CodePreview = ({
               borderRadius,
             }}
           />
-          <ScrollArea className="h-full max-h-[500px] relative z-20">
+          <ScrollArea className={`h-full ${isExporting ? '' : 'max-h-[500px]'} relative z-20`}>
             <div className="p-6">
               <pre
                 className={`custom-theme prism font-mono text-sm leading-relaxed whitespace-pre-wrap break-words language-${language} ${editorTheme} relative z-10`}
                 style={{
+                  fontFamily: "monospace",
                   fontWeight: bold ? "bold" : undefined,
                   fontStyle: italic ? "italic" : undefined,
                   fontSize: `${fontSize}px`,
@@ -157,17 +148,27 @@ const CodePreview = ({
                 }}
               >
                 {showLineNumbers ? (
-                  <code className={`language-${language} flex`} style={{ width: "100%" }}>
-                    <span style={{
-                      userSelect: "none",
-                      color: "#888",
-                      textAlign: "right",
-                      minWidth: "2.5em",
-                      marginRight: "1em",
-                      display: "inline-block",
-                    }}>
+                  <code
+                    className={`language-${language} flex`}
+                    style={{ width: "100%" }}
+                  >
+                    <span
+                      style={{
+                        userSelect: "none",
+                        color: "#888",
+                        textAlign: "right",
+                        minWidth: "2.5em",
+                        marginRight: "1em",
+                        display: "inline-block",
+                      }}
+                    >
                       {codeLines.map((_, i) => (
-                        <span key={i} style={{ display: "block", lineHeight: 1.7 }}>{i + 1}</span>
+                        <span
+                          key={i}
+                          style={{ display: "block", lineHeight: 1.7 }}
+                        >
+                          {i + 1}
+                        </span>
                       ))}
                     </span>
                     <span style={{ width: "100%" }}>

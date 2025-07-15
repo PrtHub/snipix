@@ -13,9 +13,9 @@ export function CodePreviewToggle({ mode, onModeChange }: CodePreviewToggleProps
         variant={mode === "code" ? "default" : "ghost"}
         size="sm"
         onClick={() => onModeChange("code")}
-        className={`flex items-center gap-2 transition-all duration-300 ${
+        className={`flex items-center gap-2 cursor-pointer transition-all duration-300 ${
           mode === "code" 
-            ? "bg-gradient-to-r from-white/20 to-white/10 text-white shadow-lg shadow-white/10 border border-white/20 backdrop-blur-sm" 
+            ? "bg-gradient-to-r from-white/20 to-white/10 text-white shadow-lg shadow-white/10 border border-white/20 backdrop-blur-sm hover:bg-white/10" 
             : "text-zinc-400 hover:text-zinc-300 hover:bg-white/10 hover:border-white/20 backdrop-blur-sm border border-transparent"
         }`}
       >
@@ -26,9 +26,9 @@ export function CodePreviewToggle({ mode, onModeChange }: CodePreviewToggleProps
         variant={mode === "preview" ? "default" : "ghost"}
         size="sm"
         onClick={() => onModeChange("preview")}
-        className={`flex items-center gap-2 transition-all duration-300 ${
+        className={`flex items-center gap-2 transition-all duration-300 cursor-pointer ${
           mode === "preview" 
-            ? "bg-gradient-to-r from-white/20 to-white/10 text-white shadow-lg shadow-white/10 border border-white/20 backdrop-blur-sm" 
+            ? "bg-gradient-to-r from-white/20 to-white/10 text-white shadow-lg shadow-white/10 border border-white/20 backdrop-blur-sm hover:bg-white/10" 
             : "text-zinc-400 hover:text-zinc-300 hover:bg-white/10 hover:border-white/20 backdrop-blur-sm border border-transparent"
         }`}
       >

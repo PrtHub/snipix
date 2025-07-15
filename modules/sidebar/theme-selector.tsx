@@ -5,7 +5,6 @@ import { PRISM_THEMES } from "@/lib/prism-utils";
 import { SNIPIX_THEMES, type SnipixTheme } from "@/constants/snipix-themes";
 import { getCustomThemeName } from "@/lib/custom-prism-utils";
 import type {
-  FontFamily,
   FontSize,
 } from "@/modules/sidebar/typography-selector";
 import type { WindowStyle } from "@/modules/sidebar/window-style-selector";
@@ -37,7 +36,7 @@ export function ThemeSelector({
     description: `Custom theme matching ${bg.label.toLowerCase()}`,
     highlightTheme: `custom-${bg.value}` as EditorTheme,
     background: bg.value,
-    fontFamily: "fira-code" as FontFamily,
+    fontFamily: "fira-code",
     fontSize: "16" as FontSize,
     windowStyle: "macos" as WindowStyle,
     previewColors: {

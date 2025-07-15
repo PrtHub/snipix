@@ -8,14 +8,14 @@ interface CodeInputProps {
 }
 
 const CodeInput = ({ code, setCode, fontSize }: CodeInputProps) => (
-  <div className="h-full">
+  <div className="h-full px-6">
     <div className="flex items-center justify-between mb-4">
       <h3 className="text-sm font-semibold text-white drop-shadow-lg">Code Input</h3>
       <Badge variant="secondary" className="bg-white/10 backdrop-blur-sm text-white border-white/20 shadow-lg">
         Live Preview
       </Badge>
     </div>
-    <div className="relative h-full max-h-[60vh]">
+    <div className="relative h-full max-h-[80vh]">
       <div className="absolute inset-0 bg-gradient-to-br from-zinc-800/30 to-zinc-900/30  rounded-xl backdrop-blur-sm border border-white/10 shadow-2xl" />
       <Textarea
         value={code}

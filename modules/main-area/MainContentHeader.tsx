@@ -1,7 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { CodePreviewToggle } from "./code-preview-toggle";
-import { Copy, Download, ImageIcon, Sparkles } from "lucide-react";
+import { Download, ImageIcon, Sparkles } from "lucide-react";
 
 interface MainContentHeaderProps {
   mode: "code" | "preview";
@@ -9,8 +9,12 @@ interface MainContentHeaderProps {
   onExport?: () => void;
 }
 
-const MainContentHeader = ({ mode, setMode, onExport }: MainContentHeaderProps) => (
-  <div className="relative flex h-16 items-center justify-between border-b border-white/10 bg-black/40 backdrop-blur-xl px-6 shadow-lg">
+const MainContentHeader = ({
+  mode,
+  setMode,
+  onExport,
+}: MainContentHeaderProps) => (
+  <div className="relative flex h-16 items-center justify-between border-b border-white/10 bg-black/40 backdrop-blur-xl px-6 shadow-lg mb-6">
     <div className="flex items-center gap-3">
       <div className="flex items-center gap-2">
         <div className="relative">
@@ -20,30 +24,23 @@ const MainContentHeader = ({ mode, setMode, onExport }: MainContentHeaderProps) 
             <Sparkles className="h-3 w-3 text-yellow-400 absolute -top-1 -right-1" />
           </div>
         </div>
-        <h1 className="text-xl font-bold text-white drop-shadow-lg">
-          Snipix
-        </h1>
+        <h1 className="text-xl font-bold text-white drop-shadow-lg">Snipix</h1>
       </div>
       <div className="h-4 w-px bg-gradient-to-b from-white/20 to-transparent" />
-      <Badge variant="secondary" className="bg-white/10 backdrop-blur-sm text-white border-white/20 shadow-lg">
+      <Badge
+        variant="secondary"
+        className="bg-white/10 backdrop-blur-sm text-white border-white/20 shadow-lg"
+      >
         Code Snippet Generator
       </Badge>
     </div>
     <div className="flex items-center gap-4">
       <CodePreviewToggle mode={mode} onModeChange={setMode} />
       <div className="flex items-center gap-2">
-        <Button 
-          variant="outline" 
+        <Button
+          variant="outline"
           size="sm"
-          className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20 hover:border-white/30 transition-all duration-300 shadow-lg hover:shadow-xl"
-        >
-          <Copy className="h-4 w-4 mr-2" />
-          Copy
-        </Button>
-        <Button 
-          variant="outline" 
-          size="sm"
-          className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20 hover:border-white/30 transition-all duration-300 shadow-lg hover:shadow-xl"
+          className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20 hover:border-white/30 transition-all duration-300 shadow-lg hover:shadow-xl cursor-pointer"
           onClick={onExport}
           disabled={!onExport}
         >
@@ -55,4 +52,4 @@ const MainContentHeader = ({ mode, setMode, onExport }: MainContentHeaderProps) 
   </div>
 );
 
-export default MainContentHeader; 
+export default MainContentHeader;

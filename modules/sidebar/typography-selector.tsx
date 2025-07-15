@@ -3,13 +3,6 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Type } from "lucide-react";
 
-export const FONT_FAMILIES = [
-  { value: "fira-code", label: "Fira Code", className: "font-[var(--font-fira-code)]" },
-  { value: "jetbrains-mono", label: "JetBrains Mono", className: "font-[var(--font-jetbrains-mono)]" },
-  { value: "source-code-pro", label: "Source Code Pro", className: "font-[var(--font-source-code-pro)]" },
-  { value: "roboto-mono", label: "Roboto Mono", className: "font-[var(--font-roboto-mono)]" },
-] as const;
-
 export const FONT_SIZES = [
   { value: "12", label: "12px" },
   { value: "14", label: "14px" },
@@ -19,7 +12,6 @@ export const FONT_SIZES = [
   { value: "24", label: "24px" },
 ] as const;
 
-export type FontFamily = typeof FONT_FAMILIES[number]["value"];
 export type FontSize = typeof FONT_SIZES[number]["value"];
 
 interface TypographySelectorProps {
