@@ -1,7 +1,6 @@
 export const BACKGROUND_COLORS = [
   { value: "midnight-gradient", label: "Midnight", color: "linear-gradient(135deg, #0f1419 0%, #1e2328 100%)" },
   { value: "purple-gradient", label: "Purple Haze", color: "linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%)" },
-  { value: "emerald-gradient", label: "Emerald Dream", color: "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)" },
   { value: "sunset-gradient", label: "Sunset", color: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)" },
   { value: "fire-gradient", label: "Fire", color: "linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%)" },
   { value: "aurora-gradient", label: "Aurora", color: "linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)" },
@@ -18,4 +17,14 @@ export const BACKGROUND_COLORS = [
   { value: "space-gradient", label: "Space", color: "linear-gradient(135deg, #232526 0%, #414345 100%)" },
   { value: "blush-gradient", label: "Blush", color: "linear-gradient(135deg, #b24592 0%, #f15f79 100%)" },
   { value: "dusk-gradient", label: "Dusk", color: "linear-gradient(135deg, #2c3e50 0%, #fd746c 100%)" },
+  { value: "deep-sea-gradient", label: "Deep Sea", color: "linear-gradient(135deg, #0f2027 0%, #2c5364 100%)" },
+  { value: "midnight-rainbow-gradient", label: "Midnight Rainbow", color: "linear-gradient(135deg, #232526 0%, #ff512f 50%, #dd2476 100%)" },
+  { value: "aurora-burst-gradient", label: "Aurora Burst", color: "linear-gradient(135deg, #232946 0%, #5e60ce 60%, #43aa8b 100%)" },
+  { value: "cyberpunk-gradient", label: "Cyberpunk", color: "linear-gradient(135deg, #fc466b 0%, #3f5efb 100%)" },
+  { value: "twilight-forest-gradient", label: "Twilight Forest", color: "linear-gradient(135deg, #134e5e 0%, #71b280 100%)" },
+  { value: "velvet-night-gradient", label: "Velvet Night", color: "linear-gradient(135deg, #1e130c 0%, #9a8478 100%)" },
+  { value: "electric-indigo-gradient", label: "Electric Indigo", color: "linear-gradient(135deg, #6a11cb 0%, #2575fc 100%)" },
+  { value: "coral-flare-gradient", label: "Coral Flare", color: "linear-gradient(135deg, #ff5858 0%, #f09819 100%)" },
+  { value: "teal-dream-gradient", label: "Teal Dream", color: "linear-gradient(135deg, #184e77 0%, #1e6091 60%, #52b69a 100%)" },
+  { value: "raindrop-gradient", label: "Raindrop", color: "linear-gradient(135deg, #a1c4fd 0%, #2d6cdf 100%)" },
 ] as const;
