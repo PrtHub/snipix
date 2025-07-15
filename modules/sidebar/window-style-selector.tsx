@@ -49,7 +49,7 @@ export function WindowStyleSelector({ selectedStyle, onStyleChange }: WindowStyl
                 }`}
               >
                 <span className="font-medium">{style.label}</span>
-                <span className="text-xs text-zinc-400 mt-1">
+                <span className="text-xs text-zinc-400 mt-1 whitespace-break-spaces text-start">
                   {style.description}
                 </span>
               </Button>

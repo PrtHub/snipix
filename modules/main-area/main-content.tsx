@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import MainContentHeader from "./MainContentHeader";
 import CodeInput from "./CodeInput";
 import CodePreview from "./CodePreview";
+import { ExportDialog } from "./ExportDialog";
 import { useCustomizationStore } from "@/stores/customizationStore";
 import {
   highlightCodeCustom,
@@ -23,6 +24,7 @@ helloWorld();`);
 
   const previewRef = useRef<HTMLDivElement>(null);
   const [isExporting, setIsExporting] = useState(false);
+  const [showExportDialog, setShowExportDialog] = useState(false);
 
   const {
     language,
@@ -50,7 +52,11 @@ helloWorld();`);
   const customResult = highlightCodeCustom(code, language, backgroundColor);
   const editorBg = customResult.theme.background;
 
-  const onExport = async () => {
+  const handleExportClick = () => {
+    setShowExportDialog(true);
+  };
+
+  const onExport = async (filename: string) => {
     if (!previewRef.current) return;
 
     try {
@@ -63,8 +69,9 @@ helloWorld();`);
         width: previewRef.current.scrollWidth,
       });
       setIsExporting(false);
+      setShowExportDialog(false);
       const link = document.createElement("a");
-      link.download = "snipix-code.png";
+      link.download = `${filename}.png`;
       link.href = dataUrl;
       link.click();
     } catch (err) {
@@ -80,7 +87,7 @@ helloWorld();`);
       <div className="absolute top-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
       <div className="sticky top-0 z-50">
-        <MainContentHeader mode={mode} setMode={setMode} onExport={onExport} />
+        <MainContentHeader mode={mode} setMode={setMode} onExport={handleExportClick} />
       </div>
       <div className="relative flex-1">
         {mode === "code" ? (
@@ -107,6 +114,13 @@ helloWorld();`);
           </>
         )}
       </div>
+      
+      <ExportDialog
+        isOpen={showExportDialog}
+        onClose={() => setShowExportDialog(false)}
+        onExport={onExport}
+        isExporting={isExporting}
+      />
     </div>
   );
 }

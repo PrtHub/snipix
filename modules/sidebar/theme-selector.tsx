@@ -91,7 +91,7 @@ export function ThemeSelector({
               <Label className="text-zinc-300 drop-shadow-sm mb-3">
                 Custom Themes
               </Label>
-              <div className="grid grid-cols-7 gap-2 max-h-48 overflow-y-auto">
+              <div className="grid grid-cols-4 xl:grid-cols-7 gap-2 max-h-48 overflow-y-auto p-1">
                 {groupedThemes.custom.map(renderThemePreview)}
               </div>
             </div>

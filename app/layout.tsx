@@ -18,9 +18,12 @@ const logoText = Quicksand({
 });
 
 export const metadata: Metadata = {
-  title: "Snipix",
+  title: "Snipix – Turn Code into Beautiful, Shareable Images instantly",
   description:
     "Snipix is an elegant, in-browser code snippet image generator designed for developers, educators, and content creators. Transform your raw code into stunning, shareable images perfect for social media, presentations, and documentation. Built with a focus on a seamless user experience, Snipix performs all transformations client-side, ensuring speed, privacy, and cost-effectiveness",
+  icons: {
+    icon: "/logo.svg",
+  },
 };
 
 export default function RootLayout({

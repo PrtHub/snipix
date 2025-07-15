@@ -22,22 +22,23 @@ function getOverlayColor(themeBg: string) {
     const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
     return luminance > 0.6 ? "rgba(30,32,38,0.98)" : "rgba(30,32,38,0.92)";
   }
-  return "rgba(30,32,38,0.7)";
+  return "rgba(30,32,38,0.9)";
 }
 
-function WindowBar({ windowStyle }: { windowStyle: string }) {
+function WindowBar({ windowStyle, language }: { windowStyle: string, language: string }) {
+  const displayLang = language.charAt(0).toUpperCase() + language.slice(1);
   switch (windowStyle) {
     case "macos":
       return (
-        <div className="flex items-center justify-between h-10 px-4 bg-black/20 border-b border-white/10">
+        <div className="flex items-center justify-between h-10 px-4 bg-black/30 border-b border-white/10">
           <div className="flex items-center space-x-2">
             <span className="w-3 h-3 rounded-full bg-red-400"></span>
             <span className="w-3 h-3 rounded-full bg-yellow-400"></span>
             <span className="w-3 h-3 rounded-full bg-green-400"></span>
           </div>
-          <div className="flex items-center space-x-2 text-xs text-white/70">
-            <span className="px-2 py-1 bg-white/10 rounded text-white/90 font-medium">
-              Untitled-1
+          <div className="flex items-center text-sm ml-auto">
+            <span className="px-2 py-1 bg-white/10 rounded text-white font-medium">
+              {displayLang}
             </span>
           </div>
         </div>
@@ -45,8 +46,8 @@ function WindowBar({ windowStyle }: { windowStyle: string }) {
     case "windows":
       return (
         <div className="flex items-center justify-between h-10 px-4 bg-zinc-800/80 border-b border-white/10">
-          <div className="flex items-center space-x-2 text-xs text-white/70 font-semibold">
-            <span className="px-2 py-1 bg-white/10 rounded">Untitled-1</span>
+          <div className="flex items-center text-sm text-white font-semibold ml-auto">
+            <span className="px-2 py-1 bg-white/10 rounded">{displayLang}</span>
           </div>
           <div className="flex items-center space-x-2">
             <span className="w-3 h-3 flex items-center justify-center rounded bg-zinc-400 text-xs text-zinc-900 font-bold">
@@ -69,8 +70,8 @@ function WindowBar({ windowStyle }: { windowStyle: string }) {
             <span className="w-3 h-3 rounded-full bg-yellow-400"></span>
             <span className="w-3 h-3 rounded-full bg-red-400"></span>
           </div>
-          <div className="flex items-center space-x-2 text-xs text-white/70 font-semibold">
-            <span className="px-2 py-1 bg-white/10 rounded">Untitled-1</span>
+          <div className="flex items-center text-sm text-white font-semibold ml-auto">
+            <span className="px-2 py-1 bg-white/10 rounded">{displayLang}</span>
           </div>
         </div>
       );
@@ -79,15 +80,15 @@ function WindowBar({ windowStyle }: { windowStyle: string }) {
     default:
       // For rounded/sharp, fall back to macos bar for now
       return (
-        <div className="flex items-center justify-between h-10 px-4 bg-black/20 border-b border-white/10">
+        <div className="flex items-center justify-between h-10 px-4 bg-black/30 border-b border-white/10">
           <div className="flex items-center space-x-2">
             <span className="w-3 h-3 rounded-full bg-red-400"></span>
             <span className="w-3 h-3 rounded-full bg-yellow-400"></span>
             <span className="w-3 h-3 rounded-full bg-green-400"></span>
           </div>
-          <div className="flex items-center space-x-2 text-xs text-white/70">
-            <span className="px-2 py-1 bg-white/10 rounded text-white/90 font-medium">
-              Untitled-1
+          <div className="flex items-center text-sm ml-auto">
+            <span className="px-2 py-1 bg-white/10 rounded text-white font-medium">
+              {displayLang}
             </span>
           </div>
         </div>
@@ -124,7 +125,7 @@ const CodePreview = ({
           className="relative w-full max-w-3xl mx-auto shadow-xl border border-black/10 overflow-hidden"
           style={{ margin: "2rem auto", borderRadius }}
         >
-          <WindowBar windowStyle={windowStyle} />
+          <WindowBar windowStyle={windowStyle} language={language} />
           <div
             className="absolute inset-0 pointer-events-none z-0"
             style={{

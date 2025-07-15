@@ -36,7 +36,7 @@ export function LanguageSelector({ selectedLanguage, onLanguageChange }: Languag
             Programming Language ({PROGRAMMING_LANGUAGES.length} popular)
           </Label>
           <Select value={selectedLanguage} onValueChange={onLanguageChange}>
-            <SelectTrigger className="bg-black/40 backdrop-blur-sm border-white/20 text-zinc-200 focus:border-white/30 focus:ring-white/20 transition-all duration-300 shadow-lg">
+            <SelectTrigger className="bg-black/40 backdrop-blur-sm border-white/20 text-zinc-200 focus:border-white/30 focus:ring-white/20 transition-all duration-300 shadow-lg cursor-pointer">
               <SelectValue placeholder="Select language">{selectedLabel}</SelectValue>
             </SelectTrigger>
             <SelectContent className="bg-black/80 backdrop-blur-xl border-white/20 shadow-2xl max-h-60">
@@ -44,7 +44,7 @@ export function LanguageSelector({ selectedLanguage, onLanguageChange }: Languag
                 <SelectItem 
                   key={language.value} 
                   value={language.value} 
-                  className="text-zinc-200 hover:bg-white/10 hover:text-white transition-all duration-200"
+                  className="text-zinc-200 cursor-pointer hover:bg-white/10 hover:text-white transition-all duration-200"
                 >
                   {language.label}
                 </SelectItem>

@@ -1,3 +1,5 @@
+"use client"
+
 import { Badge } from "@/components/ui/badge";
 import Editor from "react-simple-code-editor";
 import "prismjs/themes/prism-okaidia.css";
