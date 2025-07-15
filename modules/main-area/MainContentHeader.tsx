@@ -1,7 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import { Button } from "@/components/ui/button";
 import { CodePreviewToggle } from "./code-preview-toggle";
-import { Download, ImageIcon, Sparkles } from "lucide-react";
+import { Download } from "lucide-react";
+import Image from "next/image";
 
 interface MainContentHeaderProps {
   mode: "code" | "preview";
@@ -20,11 +21,18 @@ const MainContentHeader = ({
         <div className="relative">
           <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-white/10 rounded-lg blur-sm" />
           <div className="relative bg-zinc-900/80 backdrop-blur-sm rounded-lg p-2 border border-white/10">
-            <ImageIcon className="h-6 w-6 text-white" />
-            <Sparkles className="h-3 w-3 text-yellow-400 absolute -top-1 -right-1" />
+            <Image
+              src="/logo.svg"
+              alt="Snipix Logo"
+              width={15}
+              height={15}
+              className="object-contain"
+            />
           </div>
         </div>
-        <h1 className="text-xl font-bold text-white drop-shadow-lg">Snipix</h1>
+        <h1 className="text-xl font-bold text-white drop-shadow-lg font-logo">
+          Snipix
+        </h1>
       </div>
     </div>
     <div className="flex items-center gap-4">
