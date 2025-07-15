@@ -1,4 +1,4 @@
-import { Badge } from "@/components/ui/badge";
+/* eslint-disable @next/next/no-img-element */
 import { Button } from "@/components/ui/button";
 import { CodePreviewToggle } from "./code-preview-toggle";
 import { Download, ImageIcon, Sparkles } from "lucide-react";
@@ -26,15 +26,21 @@ const MainContentHeader = ({
         </div>
         <h1 className="text-xl font-bold text-white drop-shadow-lg">Snipix</h1>
       </div>
-      <div className="h-4 w-px bg-gradient-to-b from-white/20 to-transparent" />
-      <Badge
-        variant="secondary"
-        className="bg-white/10 backdrop-blur-sm text-white border-white/20 shadow-lg"
-      >
-        Code Snippet Generator
-      </Badge>
     </div>
     <div className="flex items-center gap-4">
+      <a
+        href="https://www.buymeacoffee.com/iPritam"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="ml-2 flex items-center"
+      >
+        <img
+          src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=iPritam&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff"
+          alt="Buy me a coffee"
+          className="h-9 w-auto rounded shadow"
+          style={{ display: "block" }}
+        />
+      </a>
       <CodePreviewToggle mode={mode} onModeChange={setMode} />
       <div className="flex items-center gap-2">
         <Button
