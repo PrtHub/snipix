@@ -16,7 +16,7 @@ const CodeInput = ({ code, setCode, fontSize }: CodeInputProps) => {
   const { backgroundColor, language } = useCustomizationStore();
 
   return (
-    <div className="h-full flex flex-col px-6 py-4">
+    <div className="h-full flex flex-col px-6 pb-4">
       <div className="flex items-center justify-between mb-4 flex-shrink-0">
         <h3 className="text-sm font-semibold text-white drop-shadow-lg">
           Code Input
