@@ -16,8 +16,8 @@ const CodeInput = ({ code, setCode, fontSize }: CodeInputProps) => {
   const { backgroundColor, language } = useCustomizationStore();
 
   return (
-    <div className="h-full px-6">
-      <div className="flex items-center justify-between mb-4">
+    <div className="h-full flex flex-col px-6 py-4">
+      <div className="flex items-center justify-between mb-4 flex-shrink-0">
         <h3 className="text-sm font-semibold text-white drop-shadow-lg">
           Code Input
         </h3>
@@ -28,7 +28,7 @@ const CodeInput = ({ code, setCode, fontSize }: CodeInputProps) => {
           Live Preview
         </Badge>
       </div>
-      <div className="relative h-full max-h-[80vh]">
+      <div className="relative flex-1 min-h-0">
         <div className="absolute inset-0 bg-gradient-to-br from-zinc-800/30 to-zinc-900/30 rounded-xl backdrop-blur-sm border border-white/10 shadow-2xl" />
         <Editor
           value={code}
@@ -48,7 +48,7 @@ const CodeInput = ({ code, setCode, fontSize }: CodeInputProps) => {
             color: "#fff",
             background: "transparent",
             minHeight: "60vh",
-            maxHeight: "60vh",
+            maxHeight: "75vh",
             outline: "none",
             position: "relative",
             zIndex: 1,
@@ -56,6 +56,7 @@ const CodeInput = ({ code, setCode, fontSize }: CodeInputProps) => {
             borderColor: "transparent !important",
             WebkitAppearance: "none",
             WebkitBoxShadow: "none",
+            overflowY: "scroll",
           }}
           textareaClassName="text-zinc-200 placeholder:text-zinc-500 border-none outline-none"
           placeholder="Paste your code here..." 

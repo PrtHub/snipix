@@ -118,11 +118,11 @@ const CodePreview = ({
   return (
     <div className="h-full p-6">
       <div
-       className={`relative flex flex-col items-center justify-center h-full ${isExporting ? 'min-h-[80vh]' : 'h-full min-h-[80vh]'} shadow-2xl overflow-hidden p-6 rounded-2xl`}
+       className={`relative flex flex-1 flex-col items-center justify-center h-full ${isExporting ? 'min-h-[80vh]' : 'min-h-[80vh] max-h-[80vh]'} shadow-2xl py-6 px-14 rounded-2xl`}
         style={{ background: backgroundColor }}
       >
         <div
-          className="relative w-full max-w-3xl mx-auto shadow-xl border border-black/10 overflow-hidden"
+          className="relative w-full max-w-4xl mx-auto shadow-xl border border-black/10 overflow-hidden"
           style={{ margin: "2rem auto", borderRadius }}
         >
           <WindowBar windowStyle={windowStyle} language={language} />
@@ -184,7 +184,7 @@ const CodePreview = ({
                   </code>
                 ) : (
                   <code
-                    className={`language-${language}`}
+                    className={`language-${language} pb-20`}
                     dangerouslySetInnerHTML={{ __html: highlightedCode }}
                   />
                 )}
