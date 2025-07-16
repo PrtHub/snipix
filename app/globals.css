@@ -128,48 +128,8 @@
   }
 }
 
-
-  * {
-    scrollbar-width: thin;
-    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
-  }
-
-  ::-webkit-scrollbar {
-    width: var(--scrollbar-width);
-    height: var(--scrollbar-width);
-  }
-
-  ::-webkit-scrollbar-track {
-    background: var(--scrollbar-track);
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background-color: var(--scrollbar-thumb);
-    border-radius: 6px;
-    border: 2px solid var(--scrollbar-track);
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background-color: var(--scrollbar-thumb-hover);
-  }
-
-  .scrollbar-vertical > div:last-child {
-    width: var(--scrollbar-width) !important;
-    right: 0;
-    top: 0;
-    bottom: 0;
-  }
-
-  .scrollbar-horizontal > div:last-child {
-    height: var(--scrollbar-width) !important;
-    right: 0;
-    bottom: 0;
-    left: 0;
-  }
-
 .custom-theme pre, .custom-theme code, .prism pre, .prism code {
   white-space: pre-wrap !important;
   word-break: break-word !important;
   overflow-wrap: anywhere !important;
 }
-
