@@ -10,9 +10,8 @@ Snipix is an elegant, in-browser code snippet image generator designed for devel
 - **Real-time Live Preview**: Instantly see how your code snippet will look as you apply customizations.
 - **Extensive Customization Options**:
   - **Language Selection**: Choose from a wide range of programming languages for accurate syntax highlighting.
-  - **Theme Toggle**: Switch between beautiful light and dark themes to match your aesthetic.
+  - **Theme Toggle**: Choose themes to match your aesthetic.
   - **Window Styles**: Select from various window appearances (e.g., macOS, Windows, Minimalist) to frame your code.
-  - **Custom Backgrounds**: Personalize your image with a color picker for solid backgrounds.
 - **High-Quality Image Export**: Generate and download your customized code snippets as crisp PNG images directly from your browser.
 - **Client-Side Processing**: All image generation happens entirely in your browser, ensuring privacy and fast performance without server-side dependencies for core functionality.
 
@@ -20,7 +19,6 @@ Snipix is an elegant, in-browser code snippet image generator designed for devel
 
 - **Next.js**: A React framework for building powerful and scalable web applications.
 - **Shadcn UI**: A collection of beautifully designed, re-usable components built with Radix UI and Tailwind CSS.
-- **highlight.js**: For robust and accurate syntax highlighting across various programming languages.
 - **html-to-image**: The magic behind converting HTML elements into high-quality image files directly in the browser.
 - **Tailwind CSS**: For rapid and responsive styling.
 
@@ -37,16 +35,16 @@ Ensure you have Node.js and npm (or Yarn/pnpm) installed.
 1. **Clone the repository**:
 
 ```bash
-   git clone https://github.com/your-username/snipix.git
-cd snipix
+   git clone https://github.com/PrtHub/snipix.git
+   cd snipix
    ```
 
 2. **Install dependencies**:
 
 ```bash
    npm install
-# or yarn install
-# or pnpm install
+  # or yarn install
+  # or pnpm install
 ```
 
 3. **Run the development server**:
@@ -62,7 +60,6 @@ cd snipix
 
 If you find Snipix useful and would like to support its development, consider buying me a coffee! Your contributions help keep this project alive and continuously improving.
 
-<!-- Replace 'yourusername' with your actual Buy Me a Coffee username -->
 
 ## 💡 Future Enhancements
 
