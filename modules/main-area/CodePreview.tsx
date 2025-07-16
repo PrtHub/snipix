@@ -52,7 +52,7 @@ function WindowBar({
     case "windows":
       return (
         <div className="flex items-center justify-between h-10 px-4 bg-zinc-800/80 border-b border-white/10">
-          <div className="flex items-center text-sm text-white font-semibold ml-auto">
+          <div className="flex items-center text-sm text-white font-semibold mr-auto">
             <span className="px-2 py-1 bg-white/10 rounded">{displayLang}</span>
           </div>
           <div className="flex items-center space-x-2">
