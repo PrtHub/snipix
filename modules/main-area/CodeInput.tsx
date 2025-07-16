@@ -52,9 +52,13 @@ const CodeInput = ({ code, setCode, fontSize }: CodeInputProps) => {
             outline: "none",
             position: "relative",
             zIndex: 1,
+            border: "none !important",
+            borderColor: "transparent !important",
+            WebkitAppearance: "none",
+            WebkitBoxShadow: "none",
           }}
-          textareaClassName="text-zinc-200 placeholder:text-zinc-500"
-          placeholder="Paste your code here..."
+          textareaClassName="text-zinc-200 placeholder:text-zinc-500 border-none outline-none"
+          placeholder="Paste your code here..." 
         />
         <div className="absolute top-4 right-4 text-xs text-zinc-400 bg-black/50 backdrop-blur-sm px-2 py-1 rounded-md border border-white/10 z-10">
           {code.length} characters
