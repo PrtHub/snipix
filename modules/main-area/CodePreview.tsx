@@ -25,7 +25,13 @@ function getOverlayColor(themeBg: string) {
   return "rgba(30,32,38,0.9)";
 }
 
-function WindowBar({ windowStyle, language }: { windowStyle: string, language: string }) {
+function WindowBar({
+  windowStyle,
+  language,
+}: {
+  windowStyle: string;
+  language: string;
+}) {
   const displayLang = language.charAt(0).toUpperCase() + language.slice(1);
   switch (windowStyle) {
     case "macos":
@@ -118,7 +124,9 @@ const CodePreview = ({
   return (
     <div className="h-full p-6">
       <div
-       className={`relative flex flex-1 flex-col items-center justify-center h-full ${isExporting ? 'min-h-[80vh]' : 'min-h-[80vh] max-h-[80vh]'} shadow-2xl py-6 px-14 rounded-2xl`}
+        className={`relative flex flex-1 flex-col items-center justify-center h-full ${
+          isExporting ? "min-h-[80vh]" : "min-h-[80vh] max-h-[80vh]"
+        } shadow-2xl py-6 px-14 rounded-2xl`}
         style={{ background: backgroundColor }}
       >
         <div
@@ -133,7 +141,11 @@ const CodePreview = ({
               borderRadius,
             }}
           />
-          <ScrollArea className={`h-full ${isExporting ? '' : 'max-h-[500px]'} relative z-20`}>
+          <ScrollArea
+            className={`h-full ${
+              isExporting ? "" : "max-h-[500px]"
+            } relative z-20`}
+          >
             <div className="p-6">
               <pre
                 className={`custom-theme prism font-mono text-sm leading-relaxed whitespace-pre-wrap break-words language-${language} ${editorTheme} relative z-10`}
@@ -150,7 +162,7 @@ const CodePreview = ({
               >
                 {showLineNumbers ? (
                   <code
-                    className={`language-${language} flex`}
+                    className={`language-${language} flex pb-10`}
                     style={{ width: "100%" }}
                   >
                     <span
@@ -171,6 +183,17 @@ const CodePreview = ({
                           {i + 1}
                         </span>
                       ))}
+                      {codeLines.length > 0 &&
+                        codeLines[codeLines.length - 1].trim() !== "" && (
+                          <>
+                            <span style={{ display: "block", lineHeight: 1.7 }}>
+                              {codeLines.length + 1}
+                            </span>
+                            <span style={{ display: "block", lineHeight: 1.7 }}>
+                              {codeLines.length + 2}
+                            </span>
+                          </>
+                        )}
                     </span>
                     <span style={{ width: "100%" }}>
                       {codeLines.map((line, i) => (

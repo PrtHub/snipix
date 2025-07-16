@@ -100,6 +100,7 @@ helloWorld();`);
             >
               <CodePreview
                 highlightedCode={highlightedCode}
+                // originalCode={code}
                 language={language}
                 fontSize={fontSize}
                 backgroundColor={editorBg}
@@ -114,7 +115,7 @@ helloWorld();`);
           </>
         )}
       </div>
-      
+
       <ExportDialog
         isOpen={showExportDialog}
         onClose={() => setShowExportDialog(false)}

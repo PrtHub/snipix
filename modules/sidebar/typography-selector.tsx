@@ -32,8 +32,8 @@ export function TypographySelector({
   italic = false,
   onBoldChange,
   onItalicChange,
-  lineNumbers = false,
-  onLineNumbersChange,
+  // lineNumbers = false,
+  // onLineNumbersChange,
 }: TypographySelectorProps) {
   return (
     <Card className="relative bg-black/40 backdrop-blur-xl border border-white/10 shadow-2xl">
@@ -92,7 +92,7 @@ export function TypographySelector({
             I
           </Button>
         </div>
-        <div className="flex gap-2 items-center mt-3">
+        {/* <div className="flex gap-2 items-center mt-3">
           <Label className="text-zinc-300 drop-shadow-sm">Line Numbers</Label>
           <Button
             type="button"
@@ -104,7 +104,7 @@ export function TypographySelector({
           >
             {lineNumbers ? "On" : "Off"}
           </Button>
-        </div>
+        </div> */}
       </CardContent>
     </Card>
   );

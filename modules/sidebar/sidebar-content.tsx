@@ -71,8 +71,6 @@ export function SidebarContent() {
             lineNumbers={lineNumbers}
             onLineNumbersChange={setLineNumbers}
           />
-          {/* Add some bottom padding to ensure scrollability */}
-          <div className="h-4" />
         </div>
       </ScrollArea>
     </div>
