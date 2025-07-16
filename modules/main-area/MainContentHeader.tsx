@@ -36,7 +36,7 @@ const MainContentHeader = ({
       </div>
     </div>
     <div className="flex items-center gap-4">
-      {/* <a
+      <a
         href="https://www.buymeacoffee.com/iPritam"
         target="_blank"
         rel="noopener noreferrer"
@@ -48,7 +48,7 @@ const MainContentHeader = ({
           className="h-9 w-auto rounded shadow"
           style={{ display: "block" }}
         />
-      </a> */}
+      </a>
       <CodePreviewToggle mode={mode} onModeChange={setMode} />
       <div className="flex items-center gap-2">
         <Button
